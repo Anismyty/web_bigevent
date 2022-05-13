@@ -23,7 +23,6 @@ $(function () {
 
 //获取数据
 function getUserInfo() {
-  let Authorization = localStorage.getItem("token") || "";
   $.ajax({
     method: "GET",
     url: "/my/userinfo",
@@ -32,6 +31,7 @@ function getUserInfo() {
         return layer.msg("获取信息失败！", { icon: 5 });
       }
       renderAvatar(res.data);
+      console.log(res);
     },
     //根目录里面挂在了complete函数，不管是否成功都会执行
   });
@@ -49,4 +49,10 @@ function renderAvatar(data) {
     $(".layui-nav-img").hide();
     $(".text-avatar").show().text(person.charAt(0).toUpperCase());
   }
+}
+
+//临时修改头像
+function Chanegavator(url){
+  $(".text-avatar").hide();
+  $(".layui-nav-img").show().attr("src", url);
 }

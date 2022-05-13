@@ -1,0 +1,10 @@
+body {
+  background-color: rgb(197, 197, 197);
+}
+.layui-card {
+  width: 98%;
+  margin: 10px auto;
+}
+.layui-card-body input {
+  width: 500px;
+}
