@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(197, 197, 197);
+  background-color: #e2e2e2;
 }
 .layui-card {
   width: 98%;
@@ -7,4 +7,8 @@ body {
 }
 .layui-card-body input {
   width: 500px;
+}
+.layui-card-header {
+  font-size: 20px;
+  font-weight: bold;
 }

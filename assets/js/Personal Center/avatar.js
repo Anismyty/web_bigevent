@@ -41,11 +41,12 @@ $(function () {
         height: 100,
       })
       .toDataURL("image/png");
+    console.log(dataUrl);
     // 发起请求——发送照片
     $.ajax({
-      type: "POST",
+      method: "POST",
       url: "/my/update/avatar",
-      data: dataUrl,
+      data: { avatar: dataUrl },
       success: function (res) {
         if (res.status != 0) {
           return layer.msg("更新头像失败", { icon: 5 });
@@ -53,9 +54,9 @@ $(function () {
         layer.msg("更新头像成功", { icon: 6 });
         //测试使用
         //console.log(res);
-        // window.parent.getUserInfo()
+        window.parent.getUserInfo();
         //临时修改头像
-        window.parent.Chanegavator(dataUrl);
+        //window.parent.Chanegavator(dataUrl);
       },
     });
   });

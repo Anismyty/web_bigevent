@@ -2,6 +2,13 @@
   padding: 0;
   margin: 0;
 }
+.layui-card {
+  width: 98%;
+  margin: 10px auto;
+}
+body {
+  background-color: #e2e2e2;
+}
 .layui-card-body {
   width: 500px;
 }
@@ -46,4 +53,8 @@
 }
 .layui-btn-danger {
   margin-left: 5px;
+}
+.layui-card-header {
+  font-size: 20px;
+  font-weight: bold;
 }

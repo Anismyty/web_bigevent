@@ -19,16 +19,6 @@ $(function () {
     },
   });
 
-  //验证原密码输入是否正确
-  function checkOldPwd() {
-    $.ajax({
-      method: "GET",
-      url: "/my/userinfo",
-      success: function (res) {
-        console.log(res);
-      },
-    });
-  }
   $(".layui-form").on("submit", function (e) {
     e.preventDefault();
     $.ajax({
@@ -40,9 +30,22 @@ $(function () {
           return layer.msg("原密码输入错误", { icon: 5 });
         }
         layer.msg("密码修改成功", { icon: 6 });
-        console.log(res);
         //重置表单
         $(".layui-form")[0].reset();
+        //禁止频繁修改密码
+        $(".change").addClass("layui-btn-disabled");
+        let i = 30;
+        $(".change").text(`请等待${i}s后再修改`);
+        let timer = setInterval(() => {
+          i--;
+          $(".change").text(`请等待${i}s后再修改`);
+          if (i === 0) {
+            clearInterval(timer);
+            i = 30;
+            $(".change").removeClass("layui-btn-disabled");
+            $(".change").text("修改密码");
+          }
+        }, 1000);
       },
     });
   });

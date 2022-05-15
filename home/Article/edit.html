@@ -23,12 +23,12 @@
     <script src="/assets/lib/cropper/Cropper.js"></script>
     <script src="/assets/lib/cropper/jquery-cropper.js"></script>
     <!-- 自己的js -->
-    <script src="/assets/js/Article/publish.js"></script>
+    <script src="/assets/js/Article/edit.js"></script>
 </head>
 
 <body>
     <div class="layui-card">
-        <div class="layui-card-header">写文章 | <i>Write Article</i></div>
+        <div class="layui-card-header">编辑文章 | <i>Edit Article</i></div>
         <div class="layui-card-body">
             <form class="layui-form" id="form-pub">
                 <!-- 输入标题 -->
@@ -44,6 +44,7 @@
                     <label class="layui-form-label">文章类别</label>
                     <div class="layui-input-block">
                         <select name="cate_id" lay-verify="required" class="allCategory">
+
                         </select>
                     </div>
                 </div>
@@ -51,7 +52,7 @@
                 <div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">文章内容</label>
                     <div class="layui-input-block" style="height: 400px;">
-                        <textarea name="content" placeholder="请输入内容" class="layui-textarea"></textarea>
+                        <textarea id="impot" name="content" placeholder="请输入内容" class="layui-textarea"></textarea>
                     </div>
                 </div>
                 <!-- 图片选择和裁剪 -->
@@ -61,12 +62,13 @@
                     <div class="layui-input-block cover-box">
                         <!-- 大图 -->
                         <div class="cover-left">
-                            <img src="/assets/images/4.jpg" id="image" alt="">
+                            <img src="" id="image" alt="">
                         </div>
                         <!-- 小图 -->
                         <div class="cover-right">
-                            <div class="img-preview"></div>
-                            <input type="file" id="coverFile" style="display: none;" accept="image/png,image/jpeg,img/gif" />
+                            <div class="img-preview">暂无图片</div>
+                            <input type="file" id="coverFile" style="display: none;"
+                                accept="image/png,image/jpeg,img/gif" />
                             <button type="button" class="layui-btn layui-btn-danger" id="btnChoseImg">选择封面</button>
                         </div>
                     </div>
@@ -87,7 +89,7 @@
 
     <!-- 下拉框分类自动渲染 -->
     <script type="text/html" id="category">
-        <option value="">选择文章类别</option>
+        <option value="" id="top">选择文章类别</option>
     {{each data}}
         <option value="{{$value.Id}}">{{$value.name}}</option>
     {{/each}}

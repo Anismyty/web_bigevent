@@ -31,7 +31,6 @@ function getUserInfo() {
         return layer.msg("获取信息失败！", { icon: 5 });
       }
       renderAvatar(res.data);
-      console.log(res);
     },
     //根目录里面挂在了complete函数，不管是否成功都会执行
   });
